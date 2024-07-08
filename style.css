@@ -5,16 +5,32 @@
     border: 1px pink solid;
 }
 
+p {
+    line-height: 1.5rem;
+}
+
+header {
+    background-color: lightblue;
+}
+.sidebar {
+    background-color: lightpink;
+}
+
 :root {
-    --header-height: 100px;
+    --header-height: 8rem;
     --sidebar-width: 180px;
     --min-user-width: 450px;
+    --min-mainsub-width: 400px;
     --space: 1rem;
     --branding-icon-width: 50px;
     --nav-icon-width: calc(var(--branding-icon-width) * 0.6);
     --header-icon-width: var(--nav-icon-width);
     --avatar-width: calc(var(--branding-icon-width) * 1.1);
     --large-avatar-width: calc(var(--avatar-width) * 1.2);
+    --card-width: 45ch;
+    --card-height: 200px;
+    --card-footer-height: var(--card-footer-icon-width);
+    --card-footer-icon-width: var(--nav-icon-width);
     --main-color: rgb(0, 146, 203);
     --accent-color: rgb(255, 123, 0);
     --gray-color: #ddd;
@@ -36,7 +52,7 @@ body {
 header {
     grid-area: header;
     display: grid;
-    grid-template-columns: 1fr min(40%, 400px);
+    grid-template-columns: 1fr min(40%, var(--min-user-width));
 }
 
 header .searchbar {
@@ -80,7 +96,7 @@ header .buttons {
     width: var(--header-icon-width);
 }
 
-header .avatar {
+.avatar {
     width: var(--avatar-width);
     height: var(--avatar-width);
     border-radius: 50%;
@@ -95,6 +111,7 @@ header .greeting .avatar {
     grid-area: sidebar;
     display: grid;
     gap: calc(var(--branding-icon-width) + var(--space));
+    align-content: flex-start;
 }
 
 .sidebar>div {
@@ -120,4 +137,59 @@ header .greeting .avatar {
 
 .main {
     grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr min(30%, var(--min-mainsub-width));
+    gap: var(--space);
+    grid-template-areas: 
+        "project announcement"
+        "project trending"
+    ;
 }
+
+.main .project {
+    grid-area: project;
+}
+
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
+    grid-auto-rows: var(--card-height);
+    gap: var(--space);
+}
+
+.card {
+    display: grid;
+    grid-template-rows: 1fr var(--card-footer-height);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space);
+}
+
+.card-footer img {
+    width: var(--card-footer-icon-width);
+    height: auto;
+}
+
+
+.announcement li:not(:last-of-type) {
+    border-bottom: 1px solid var(--gray-color);
+}
+
+.announcement p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.trending a {
+    display: grid;
+    grid-template-columns: var(--avatar-width) 1fr;
+    gap: var(--space);
+}
+
+
+

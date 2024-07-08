@@ -171,6 +171,7 @@ header .greeting .avatar {
 .card {
     display: grid;
     grid-template-rows: 1fr var(--card-footer-height);
+    padding: calc(var(--space) * 1.5);
 }
 
 .card-footer {
@@ -202,5 +203,23 @@ header .greeting .avatar {
     gap: var(--space);
 }
 
+.main h1 {
+    margin-top: var(--space);
+    margin-bottom: var(--space);
+}
 
+.main ul {
+    padding: calc(var(--space) * 1.5);   
+}
 
+.main .announcement li:not(:first-of-type) {
+    padding-top: var(--space);
+}
+
+.main .announcement li:not(:last-of-type) {
+    padding-bottom: var(--space);
+}
+
+.main .trending li:not(:last-of-type) {
+    margin-bottom: var(--space);
+}

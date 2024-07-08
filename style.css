@@ -7,3 +7,24 @@
 ul {
     list-style: none;
 }
+
+body {
+    display: grid;
+    grid-template: 1fr 5fr / 1fr 5fr;
+    grid-template-areas: 
+        "sidebar header"
+        "sidebar main"
+    ;
+}
+
+header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.main {
+    grid-area: main;
+}

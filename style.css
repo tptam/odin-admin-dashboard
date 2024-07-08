@@ -36,13 +36,14 @@ p {
 :root {
     --space: 1rem;
 
-    --header-height: calc(var(--nav-icon-width) + var(--large-nav-icon-width));
     --sidebar-width: 260px;
     --min-user-width: 450px;
     --min-mainsub-width: 35ch;
 
     --branding-font-size: 1.8rem;
     --nav-font-size: 1.3rem;
+    --large-username-font-size: 1.8rem;
+    --username-font-size: 1.2rem;
     --title1-font-size: 1.3rem;
     --title2-font-size: 1.2rem;
     --card-text-size: 1.1rem;
@@ -115,6 +116,7 @@ header {
     display: grid;
     grid-template-columns: 1fr min(40%, var(--min-user-width));
     gap: var(--space);
+    padding-right: calc(var(--space)*3);
 }
 
 header .searchbar {
@@ -150,6 +152,7 @@ header .avatar{
 header .buttons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    justify-items: end;
     align-items: center;
     gap: var(--space);
 }
@@ -168,6 +171,42 @@ header .greeting .avatar {
     width: var(--large-avatar-width);
     height: var(--large-avatar-width);
 }
+
+header input {
+    width: 80%;
+    background-color: var(--gray-color);
+    font-size: 1rem;
+    padding: calc(var(--space) / 2) var(--space);
+    border-style: none;
+    border: none;
+    border-radius: 1rem;
+}
+
+header button {
+    width: 80%;
+    padding: calc(var(--space) / 2) calc(var(--space));
+    color: var(--white-text-color);
+    background-color: var(--main-color);
+    font-size: 1rem;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 1rem;
+}
+
+header .user,
+header .greeting {
+    color: var(--dark-text-color);
+    font-weight: bold;
+}
+
+header .user {
+    font-size: var(--username-font-size);
+}
+
+header .username {
+    font-size: var(--large-username-font-size);
+}
+
 
 .sidebar {
     grid-area: sidebar;
@@ -224,6 +263,8 @@ header .greeting .avatar {
         "project announcement"
         "project trending"
     ;
+    padding-right: calc(var(--space)*2);
+    padding-left: calc(var(--space)*2);
 }
 
 

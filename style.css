@@ -10,7 +10,10 @@
     --sidebar-width: 180px;
     --space: 1rem;
     --branding-icon-width: 50px;
-    --nav-icon-width: calc(var(--branding-icon-width) * 0.5);
+    --nav-icon-width: calc(var(--branding-icon-width) * 0.6);
+    --header-icon-width: var(--nav-icon-width);
+    --avatar-width: calc(var(--branding-icon-width) * 1.1);
+    --large-avatar-width: calc(var(--avatar-width) * 1.2);
     --main-color: rgb(0, 146, 203);
     --accent-color: rgb(255, 123, 0);
     --gray-color: #ddd;
@@ -33,6 +36,58 @@ header {
     grid-area: header;
     display: grid;
     grid-template-columns: 3fr 2fr;
+}
+
+header .searchbar {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: var(--header-icon-width) 1fr;
+    gap: var(--space);
+    align-items: center;
+}
+
+header .user {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space);
+}
+
+header .greeting {
+    display: grid;
+    grid-template-columns: var(--large-avatar-width) 1fr;
+    grid-template-areas: 
+        "avatar hello"
+        "avatar username"
+    ;
+    align-items: center;
+    column-gap: var(--space);
+}
+
+header .avatar{
+    grid-area: avatar;
+}
+
+header .buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: var(--space);
+}
+
+.search-icon, .alert-icon {
+    width: var(--header-icon-width);
+}
+
+header .avatar {
+    width: var(--avatar-width);
+    height: var(--avatar-width);
+    border-radius: 50%;
+}
+
+header .greeting .avatar {
+    width: var(--large-avatar-width);
+    height: var(--large-avatar-width);
 }
 
 .sidebar {

@@ -4,13 +4,20 @@
     box-sizing: border-box;
 }
 
+:root {
+    --header-height: 100px;
+    --sidebar-width: 180px;
+    --space: 1rem;
+    --nav-icon-width: 50px;
+}
+
 ul {
     list-style: none;
 }
 
 body {
     display: grid;
-    grid-template: 1fr 5fr / 1fr 5fr;
+    grid-template: var(--header-height) 1fr / var(--sidebar-width) 1fr;
     grid-template-areas: 
         "sidebar header"
         "sidebar main"
@@ -23,6 +30,29 @@ header {
 
 .sidebar {
     grid-area: sidebar;
+    display: grid;
+    gap: calc(var(--nav-icon-width) + var(--space));
+}
+
+.sidebar>div {
+    display: grid;
+    grid-template-columns: var(--nav-icon-width) 1fr;
+    gap: var(--space);
+    align-items: center;
+}
+
+.sidebar .icon {
+    justify-self: center;
+}
+
+.sidebar .branding .icon img {
+    width: var(--nav-icon-width);
+    height: auto;
+}
+
+.sidebar .icon img {
+    width: calc(var(--nav-icon-width) * 0.5);
+    height: auto;
 }
 
 .main {

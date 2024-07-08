@@ -28,37 +28,49 @@ p {
 }
 
 
-/* dummy colors */
+/* dummy border */
 * {
     border: 1px solid lightgreen;
 }
-header {
-    background-color: lightblue;
-}
-.sidebar {
-    background-color: lightpink;
-}
-
 
 :root {
-    --header-height: calc(var(--nav-icon-width) + var(--large-nav-icon-width));
-    --sidebar-width: 180px;
-    --min-user-width: 450px;
-    --min-mainsub-width: 400px;
     --space: 1rem;
-    --branding-icon-width: 50px;
+
+    --header-height: calc(var(--nav-icon-width) + var(--large-nav-icon-width));
+    --sidebar-width: 200px;
+    --min-user-width: 450px;
+    --min-mainsub-width: 45ch;
+
+    --branding-font-size: 1.8rem;
+    --nav-font-size: 1.3rem;
+
+    --branding-icon-width: 3rem;
     --nav-icon-width: calc(var(--branding-icon-width) * 0.6);
     --header-icon-width: var(--nav-icon-width);
     --avatar-width: calc(var(--branding-icon-width) * 1.1);
     --large-avatar-width: calc(var(--avatar-width) * 1.2);
-    --card-width: 45ch;
+
+    --card-width: 40ch;
     --card-height: 200px;
     --card-footer-height: var(--card-footer-icon-width);
     --card-footer-icon-width: var(--nav-icon-width);
+
     --main-color: rgb(0, 146, 203);
     --accent-color: rgb(255, 123, 0);
-    --gray-color: #ddd;
+    --gray-color: #eaf2f2;
+    --white-text-color: #fff;
+    --dark-text-color: #000;
+    --light-text-color: #777;
+
+    --header-background-color: #fff;
+    --sidebar-background-color: var(--main-color);
+    --main-background-color: var(--gray-color);
+
+
+    /* Generated on https://codepen.io/sosuke/pen/Pjoqqp */
+    --svg-filter: invert(100%) sepia(0%) saturate(441%) hue-rotate(82deg) brightness(118%) contrast(100%);
 }
+
 
 ul {
     list-style: none;
@@ -78,6 +90,18 @@ header,
 .main {
     padding: var(--space);
 }
+
+
+header {
+    background-color: var(--header-background-color, #fff);
+}
+.sidebar {
+    background-color: var(--sidebar-background-color, lightpink);
+}
+.main {
+    background-color: var(--main-background-color, lightgray);
+}
+
 
 header {
     grid-area: header;
@@ -141,7 +165,7 @@ header .greeting .avatar {
     grid-area: sidebar;
     display: grid;
     gap: calc(var(--branding-icon-width) + var(--space));
-    align-content: flex-start;
+    align-content: flex-start;    
 }
 
 .sidebar>div {
@@ -151,19 +175,38 @@ header .greeting .avatar {
     align-items: center;
 }
 
-.sidebar .icon {
-    justify-self: center;
+.sidebar a {
+    color: var(--white-text-color);
+    font-size: var(--nav-font-size);
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.sidebar .branding .icon img {
-    width: var(--branding-icon-width);
-    height: auto;
+.sidebar .icon {
+    justify-self: center;
+    height: var(--nav-icon-width);
 }
 
 .sidebar .icon img {
     width: var(--nav-icon-width);
-    height: auto;
+    height: var(--nav-icon-width);
+    filter: var(--svg-filter);
 }
+
+.sidebar .branding a {
+    font-size: var(--branding-font-size);
+}
+
+.sidebar .branding .icon {
+    width: var(--branding-icon-width);
+    height: var(--branding-icon-width);
+}
+
+.sidebar .branding .icon img {
+    width: var(--branding-icon-width);
+    height: var(--branding-icon-width);
+}
+
 
 .main {
     grid-area: main;

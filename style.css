@@ -43,11 +43,14 @@ p {
 
     --branding-font-size: 1.8rem;
     --nav-font-size: 1.3rem;
+    --title1-font-size: 1.3rem;
+    --title2-font-size: 1.2rem;
+    --card-text-size: 1.1rem;
 
     --branding-icon-width: 3rem;
-    --nav-icon-width: calc(var(--branding-icon-width) * 0.6);
+    --nav-icon-width: 2rem;
     --header-icon-width: var(--nav-icon-width);
-    --avatar-width: calc(var(--branding-icon-width) * 1.1);
+    --avatar-width: 3.5rem;
     --large-avatar-width: calc(var(--avatar-width) * 1.2);
 
     --card-width: 40ch;
@@ -91,6 +94,9 @@ header,
     padding: var(--space);
 }
 
+header a, .sidebar a, .trending a {
+    text-decoration: none;
+}
 
 header {
     background-color: var(--header-background-color, #fff);
@@ -178,7 +184,6 @@ header .greeting .avatar {
 .sidebar a {
     color: var(--white-text-color);
     font-size: var(--nav-font-size);
-    text-decoration: none;
     font-weight: bold;
 }
 
@@ -219,6 +224,27 @@ header .greeting .avatar {
     ;
 }
 
+
+.main, .description {
+    color: var(--light-text-color);
+}
+
+.main h1, .main h2, .name {
+    color: var(--dark-text-color);
+}
+
+.main h1 {
+    font-size: var(--title1-font-size);
+}
+
+.project h2 {
+    font-size: var(--title2-font-size);
+}
+
+.announcement h2 {
+    font-size: calc(var(--title2-font-size)*0.9);
+}
+
 .main .project {
     grid-area: project;
 }
@@ -234,6 +260,7 @@ header .greeting .avatar {
     display: grid;
     grid-template-rows: 1fr var(--card-footer-height);
     padding: calc(var(--space) * 1.5);
+    font-size: var(--card-text-size);
 }
 
 .card-footer {
@@ -263,6 +290,7 @@ header .greeting .avatar {
     display: grid;
     grid-template-columns: var(--avatar-width) 1fr;
     gap: var(--space);
+    align-items: center;
 }
 
 .main h1 {

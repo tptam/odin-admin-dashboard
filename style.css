@@ -30,16 +30,16 @@ p {
 
 /* dummy border */
 * {
-    border: 1px solid lightgreen;
+    /* border: 1px solid lightgreen; */
 }
 
 :root {
     --space: 1rem;
 
     --header-height: calc(var(--nav-icon-width) + var(--large-nav-icon-width));
-    --sidebar-width: 200px;
+    --sidebar-width: 260px;
     --min-user-width: 450px;
-    --min-mainsub-width: 45ch;
+    --min-mainsub-width: 35ch;
 
     --branding-font-size: 1.8rem;
     --nav-font-size: 1.3rem;
@@ -54,13 +54,14 @@ p {
     --large-avatar-width: calc(var(--avatar-width) * 1.2);
 
     --card-width: 40ch;
-    --card-height: 200px;
+    --card-height: 28ch;
     --card-footer-height: var(--card-footer-icon-width);
     --card-footer-icon-width: var(--nav-icon-width);
 
     --main-color: rgb(0, 146, 203);
     --accent-color: rgb(255, 123, 0);
     --gray-color: #eaf2f2;
+    --shadow-color: hsl(from var(--gray-color) h s calc(l * 0.8));
     --white-text-color: #fff;
     --dark-text-color: #000;
     --light-text-color: #777;
@@ -68,7 +69,7 @@ p {
     --header-background-color: #fff;
     --sidebar-background-color: var(--main-color);
     --main-background-color: var(--gray-color);
-
+    --card-background-color: var(--header-background-color);
 
     /* Generated on https://codepen.io/sosuke/pen/Pjoqqp */
     --svg-filter: invert(100%) sepia(0%) saturate(441%) hue-rotate(82deg) brightness(118%) contrast(100%);
@@ -81,7 +82,7 @@ ul {
 
 body {
     display: grid;
-    grid-template: var(--header-height) 1fr / var(--sidebar-width) 1fr;
+    grid-template-columns: var(--sidebar-width) 1fr;
     grid-template-areas: 
         "sidebar header"
         "sidebar main"
@@ -113,6 +114,7 @@ header {
     grid-area: header;
     display: grid;
     grid-template-columns: 1fr min(40%, var(--min-user-width));
+    gap: var(--space);
 }
 
 header .searchbar {
@@ -261,6 +263,10 @@ header .greeting .avatar {
     grid-template-rows: 1fr var(--card-footer-height);
     padding: calc(var(--space) * 1.5);
     font-size: var(--card-text-size);
+    background-color: var(--card-background-color);
+    border-left: 0.5rem solid var(--accent-color);
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 5px var(--shadow-color);
 }
 
 .card-footer {
@@ -274,9 +280,16 @@ header .greeting .avatar {
     height: auto;
 }
 
+.announcement ul,
+.trending ul {
+    background-color: var(--card-background-color);
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 5px var(--shadow-color);
+}
+
 
 .announcement li:not(:last-of-type) {
-    border-bottom: 1px solid var(--gray-color);
+    border-bottom: 1px solid var(--shadow-color);
 }
 
 .announcement p {
@@ -311,5 +324,5 @@ header .greeting .avatar {
 }
 
 .main .trending li:not(:last-of-type) {
-    margin-bottom: var(--space);
+    margin-bottom: calc(var(--space) * 1.2);
 }

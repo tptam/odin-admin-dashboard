@@ -46,8 +46,8 @@
 
     /* --primary-color: rgb(0, 146, 203); */
     /* --secondary-color: rgb(255, 123, 0); */
-    --primary-color: #3c4d60;
-    --secondary-color: #49CD8F;
+    --primary-color: #0891b2;
+    --secondary-color: #b26508;
     --surface-color: #fff;
     --background-color: #eaf2f2;
     --shadow-color: hsl(from var(--background-color) h s calc(l * 0.8));

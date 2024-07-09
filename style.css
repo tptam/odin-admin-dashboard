@@ -31,21 +31,17 @@
     --title2-font-size: 1.2rem;
     --card-text-size: 1.1rem;
 
-    --branding-icon-width: 3rem;
-    --nav-icon-width: 2rem;
-    --header-icon-width: var(--nav-icon-width);
-    --avatar-width: 3.5rem;
-    --large-avatar-width: calc(var(--avatar-width) * 1.2);
+    --branding-icon-size: 3rem;
+    --nav-icon-size: 2rem;
+    --header-icon-size: var(--nav-icon-size);
+    --avatar-size: 3.5rem;
+    --large-avatar-size: calc(var(--avatar-size) * 1.2);
 
     --card-width: 40ch;
     --card-height: 28ch;
-    --card-footer-height: var(--card-footer-icon-width);
-    --card-footer-icon-width: var(--nav-icon-width);
+    --card-footer-height: var(--card-footer-icon-size);
+    --card-footer-icon-size: var(--nav-icon-size);
 
-
-
-    /* --primary-color: rgb(0, 146, 203); */
-    /* --secondary-color: rgb(255, 123, 0); */
     --primary-color: #0891b2;
     --secondary-color: #b26508;
     --surface-color: #fff;
@@ -105,19 +101,8 @@ header,
     padding: var(--space);
 }
 
-
 header {
-    background-color: var(--header-background-color, #fff);
-}
-.sidebar {
-    background-color: var(--sidebar-background-color, lightpink);
-}
-.main {
-    background-color: var(--main-background-color, lightgray);
-}
-
-
-header {
+    background-color: var(--header-background-color);
     grid-area: header;
     display: grid;
     grid-template-columns: 1fr min(40%, var(--min-user-width));
@@ -128,7 +113,7 @@ header {
 header .searchbar {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: var(--header-icon-width) 1fr;
+    grid-template-columns: var(--header-icon-size) 1fr;
     gap: var(--space);
     align-items: center;
 }
@@ -142,7 +127,7 @@ header .user {
 
 header .greeting {
     display: grid;
-    grid-template-columns: var(--large-avatar-width) 1fr;
+    grid-template-columns: var(--large-avatar-size) 1fr;
     grid-template-areas: 
         "avatar hello"
         "avatar username"
@@ -164,18 +149,18 @@ header .buttons {
 }
 
 .search-icon, .alert-icon {
-    width: var(--header-icon-width);
+    width: var(--header-icon-size);
 }
 
 .avatar {
-    width: var(--avatar-width);
-    height: var(--avatar-width);
+    width: var(--avatar-size);
+    height: var(--avatar-size);
     border-radius: 50%;
 }
 
 header .greeting .avatar {
-    width: var(--large-avatar-width);
-    height: var(--large-avatar-width);
+    width: var(--large-avatar-size);
+    height: var(--large-avatar-size);
 }
 
 header input {
@@ -220,15 +205,16 @@ header .username {
 
 
 .sidebar {
+    background-color: var(--sidebar-background-color);
     grid-area: sidebar;
     display: grid;
-    gap: calc(var(--branding-icon-width) + var(--space));
+    gap: calc(var(--branding-icon-size) + var(--space));
     align-content: flex-start;    
 }
 
 .sidebar>div {
     display: grid;
-    grid-template-columns: var(--branding-icon-width) 1fr;
+    grid-template-columns: var(--branding-icon-size) 1fr;
     gap: var(--space);
     align-items: center;
 }
@@ -241,12 +227,12 @@ header .username {
 
 .sidebar .icon {
     justify-self: center;
-    height: var(--nav-icon-width);
+    height: var(--nav-icon-size);
 }
 
 .sidebar .icon img {
-    width: var(--nav-icon-width);
-    height: var(--nav-icon-width);
+    width: var(--nav-icon-size);
+    height: var(--nav-icon-size);
     filter: var(--svg-filter);
 }
 
@@ -255,17 +241,17 @@ header .username {
 }
 
 .sidebar .branding .icon {
-    width: var(--branding-icon-width);
-    height: var(--branding-icon-width);
+    width: var(--branding-icon-size);
+    height: var(--branding-icon-size);
 }
 
 .sidebar .branding .icon img {
-    width: var(--branding-icon-width);
-    height: var(--branding-icon-width);
+    width: var(--branding-icon-size);
+    height: var(--branding-icon-size);
 }
 
-
 .main {
+    background-color: var(--main-background-color);
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr min(30%, var(--min-mainsub-width));
@@ -336,7 +322,7 @@ header .username {
 }
 
 .card-footer img {
-    width: var(--card-footer-icon-width);
+    width: var(--card-footer-icon-size);
     height: auto;
 }
 
@@ -346,7 +332,6 @@ header .username {
     border-radius: 0.5rem;
     box-shadow: 2px 2px 5px var(--shadow-color);
 }
-
 
 .announcement li:not(:last-of-type) {
     border-bottom: 1px solid var(--shadow-color);
@@ -362,7 +347,7 @@ header .username {
 
 .trending a {
     display: grid;
-    grid-template-columns: var(--avatar-width) 1fr;
+    grid-template-columns: var(--avatar-size) 1fr;
     gap: var(--space);
     align-items: center;
 }

@@ -316,8 +316,16 @@ header .username {
     box-shadow: 2px 2px 5px var(--shadow-color);
 }
 
+.card-body p {
+    /* ellipsis on 5th line */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .card-footer {
-    display: flex;
+    display: flex
     justify-content: flex-end;
     gap: var(--space);
 }
@@ -340,6 +348,7 @@ header .username {
 }
 
 .announcement p {
+    /* ellipsis on 3rd line */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -351,6 +360,13 @@ header .username {
     grid-template-columns: var(--avatar-width) 1fr;
     gap: var(--space);
     align-items: center;
+}
+
+.trending .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .main h1 {

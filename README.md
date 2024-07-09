@@ -6,6 +6,9 @@ Long project details, announcements, trending user descriptions are truncated wi
 
 Not mobile responsive yet.
 
+<a href="https://tptam.github.io/odin-admin-dashboard/">Live Demo</a>
+
+## Attributions
 - Font: <a href="https://www.fontsquirrel.com/fonts/montserrat">Montserrat</a> by Julieta Ulanovsky
 
 - Icons: <a href="https://pictogrammers.com/library/mdi/">Material Design Icons</a>
